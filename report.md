@@ -20,11 +20,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;首先建立矩形类`square`，创建名字空间`condition`来鉴别矩形是竖直还是水平的。矩形类同时存储变量`turn`，判断该矩形的位置。
 &nbsp;&nbsp;&nbsp;&nbsp;`depth`分段函数实现：对矩形重合区域建立如下矩阵：
 
-\left[ \begin{matrix} 0 & 1 & 2 & 3 \\ 1 & 2 & 3 & 4 \\ 2 & 3 & 4 & 5 \\ 3 & 4 & 5 & 6 \end{matrix} \right]
+$\left[ \begin{matrix} 0 & 1 & 2 & 3 \\ 1 & 2 & 3 & 4 \\ 2 & 3 & 4 & 5 \\ 3 & 4 & 5 & 6 \end{matrix} \right]$
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-\left[ \begin{matrix} 蓝 & 紫 & 蓝 & 紫 \\ 紫 & 蓝 & 紫 & 蓝 \\ 蓝 & 紫 & 蓝 & 紫 \\ 紫 & 蓝 & 紫 & 蓝 \end{matrix} \right]
+$\left[ \begin{matrix} 蓝 & 紫 & 蓝 & 紫 \\ 紫 & 蓝 & 紫 & 蓝 \\ 蓝 & 紫 & 蓝 & 紫 \\ 紫 & 蓝 & 紫 & 蓝 \end{matrix} \right]$
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其中第一个矩阵是个重合点根据`x, y`坐标的自然增加，每个元素等于`turn(x) + turn(y)`，是很容易得到的。而再反观颜色矩阵可以轻易得知，在数据矩阵中`mod(2)=0`的区域蓝色矩形条在上方，反之紫色在上方。根据这个信息我们在绘制矩形条时，可以根据矩形的`condition`和区域在对应的矩阵值信息直接跳过某些区域的绘制，不仅实现了编织效果，也提高了效率。
 - **效果：**
